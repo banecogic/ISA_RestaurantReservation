@@ -152,7 +152,8 @@ public class AccountResourceIntTest {
             true,                   // activated
             "en",                   // langKey
             new HashSet<String>(Arrays.asList(AuthoritiesConstants.USER)), //authorities
-            new HashSet<String>()	// friends
+            new HashSet<String>(),	// friends
+            new HashSet<User>()		// pendingRequests
         );
 
         restMvc.perform(
@@ -177,7 +178,8 @@ public class AccountResourceIntTest {
             true,                   // activated
             "en",                   // langKey
             new HashSet<String>(Arrays.asList(AuthoritiesConstants.USER)),
-            new HashSet<String>()
+            new HashSet<String>(),
+            new HashSet<User>()
         );
 
         restUserMockMvc.perform(
@@ -202,7 +204,8 @@ public class AccountResourceIntTest {
             true,               // activated
             "en",               // langKey
             new HashSet<>(Arrays.asList(AuthoritiesConstants.USER)),
-            new HashSet<String>()
+            new HashSet<String>(),
+            new HashSet<User>()
         );
 
         restUserMockMvc.perform(
@@ -228,12 +231,13 @@ public class AccountResourceIntTest {
             true,                   // activated
             "en",                   // langKey
             new HashSet<>(Arrays.asList(AuthoritiesConstants.USER)),
-            new HashSet<String>()
+            new HashSet<String>(),
+            new HashSet<User>()
         );
 
         // Duplicate login, different e-mail
         UserDTO dup = new UserDTO(u.getLogin(), u.getPassword(), u.getLogin(), u.getLastName(),
-            "alicejr@example.com", true, u.getLangKey(), u.getAuthorities(), u.getFriends());
+            "alicejr@example.com", true, u.getLangKey(), u.getAuthorities(), u.getFriends(), u.getPendingRequests());
 
         // Good user
         restMvc.perform(
@@ -266,12 +270,13 @@ public class AccountResourceIntTest {
             true,                   // activated
             "en",                   // langKey
             new HashSet<>(Arrays.asList(AuthoritiesConstants.USER)),
-            new HashSet<String>()
+            new HashSet<String>(),
+            new HashSet<User>()
         );
 
         // Duplicate e-mail, different login
         UserDTO dup = new UserDTO("johnjr", u.getPassword(), u.getLogin(), u.getLastName(),
-            u.getEmail(), true, u.getLangKey(), u.getAuthorities(), u.getFriends());
+            u.getEmail(), true, u.getLangKey(), u.getAuthorities(), u.getFriends(), u.getPendingRequests());
 
         // Good user
         restMvc.perform(
@@ -303,7 +308,8 @@ public class AccountResourceIntTest {
             true,                   // activated
             "en",                   // langKey
             new HashSet<>(Arrays.asList(AuthoritiesConstants.ADMIN)), // <-- only admin should be able to do that
-            new HashSet<String>()
+            new HashSet<String>(),
+            new HashSet<User>()
         );
 
         restMvc.perform(

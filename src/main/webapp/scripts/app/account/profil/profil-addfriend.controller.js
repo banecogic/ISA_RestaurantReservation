@@ -20,6 +20,7 @@ angular.module('rrappApp')
             $scope.friendRequest.requested = $scope.friendToRequest.originalObject;
             $scope.friendRequest.sentDateAndTime = new Date();
             $scope.friendRequest.acceptedDateAndTime = null;
+            console.log(friendRequest);
             Friendrequest.save($scope.friendRequest, onSaveSuccess, onSaveError,
                 function () {
             });

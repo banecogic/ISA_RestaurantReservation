@@ -80,12 +80,16 @@ public class User extends AbstractAuditingEntity implements Serializable {
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Authority> authorities = new HashSet<>();
 
+
+    @JsonIgnore
     @ManyToMany(fetch = FetchType.EAGER, cascade={CascadeType.ALL})
     @JoinTable(name="FRIENDS",
         joinColumns={@JoinColumn(name="friend1_id")},
         inverseJoinColumns={@JoinColumn(name="friend2_id")})
     private Set<User> friends1 = new HashSet<User>();
  
+
+    @JsonIgnore
     @ManyToMany(fetch = FetchType.EAGER,mappedBy="friends1")
     private Set<User> friends2 = new HashSet<User>();
     
@@ -95,13 +99,13 @@ public class User extends AbstractAuditingEntity implements Serializable {
     private Set<PersistentToken> persistentTokens = new HashSet<>();
     
     @JsonManagedReference(value = "requester")
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "requester")
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "requester")
+    //@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Friendrequest> sentRequests = new HashSet<>();
     
     @JsonManagedReference(value = "requested")
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "requested")
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "requested")
+    //@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Friendrequest> pendingRequests = new HashSet<>();
 
     public Long getId() {
@@ -223,8 +227,24 @@ public class User extends AbstractAuditingEntity implements Serializable {
     public void setPersistentTokens(Set<PersistentToken> persistentTokens) {
         this.persistentTokens = persistentTokens;
     }
+    
+    public Set<Friendrequest> getSentRequests() {
+		return sentRequests;
+	}
 
-    @Override
+	public void setSentRequests(Set<Friendrequest> sentRequests) {
+		this.sentRequests = sentRequests;
+	}
+
+	public Set<Friendrequest> getPendingRequests() {
+		return pendingRequests;
+	}
+
+	public void setPendingRequests(Set<Friendrequest> pendingRequests) {
+		this.pendingRequests = pendingRequests;
+	}
+
+	@Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;

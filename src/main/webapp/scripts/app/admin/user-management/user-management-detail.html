@@ -105,6 +105,16 @@
                     </ul>
                 </td>
             </tr>
+            <tr>
+                <td>
+                    <span>Pending requests</span>
+                </td>
+                <td>
+                    <ul class="list-unstyled">
+                        <li ng-repeat="pendingRequests in user.pendingRequests"><span>{{pendingRequests}}</span></li>
+                    </ul>
+                </td>
+            </tr>
             </tbody>
         </table>
     </div>

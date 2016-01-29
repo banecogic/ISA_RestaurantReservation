@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title th:text="#{email.friend.confirmation.title}">Zahtev za prijateljstvo</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    </head>
+    <body>
+        <p th:text="#{email.friend.confirmation.greeting(${requested.firstName})}">
+            Poštovani
+        </p>
+        <p th:text="#{email.friend.confirmation.text1(${requester.firstName}, ${requester.lastName})}">
+            Dobili ste zahtev za prijatelja.
+        </p>
+        <p>
+            Da biste prihvatili novog prijatelja, posetite vaš profil klikom na sledeći <a href="http://localhost:8080/#/profil">link</a>
+        </p>
+        <p>
+            <span th:text="#{email.friend.confirmation.text3}">Vama na usluzi, </span>
+            <br/>
+            <em th:text="#{email.signature}">lakodorezervacije.com.</em>
+        </p>
+    </body>
+</html>

@@ -1,6 +1,5 @@
 package com.rrapp.service;
 
-import java.sql.SQLException;
 import java.time.ZonedDateTime;
 import java.util.List;
 
@@ -14,7 +13,6 @@ import org.springframework.transaction.annotation.Transactional;
 import com.rrapp.domain.Friendrequest;
 import com.rrapp.domain.User;
 import com.rrapp.repository.FriendrequestRepository;
-import com.rrapp.repository.UserRepository;
 
 @Service
 @Transactional
@@ -52,6 +50,7 @@ public class FriendrequestService{
     	}
     	
     	Friendrequest friendRequest = friendRequestRepository.save(newFriendRequest);
+    	mailService.sendFriendConfirmationEmail(friendRequest.getRequester(), friendRequest.getRequested());
     	return friendRequest;
     }
 }

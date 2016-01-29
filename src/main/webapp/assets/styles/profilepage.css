@@ -4,7 +4,14 @@
 	float: left;
 }
 .profile-image-big{
-	hight: 200px;
+	height: 200px;
 	width: 200px;
-	content: url('../images/user_default_logo_200_200.png');
+	background-image: url('../images/user_default_logo_200_200.png');
+}
+.notification {
+    position: relative;
+    float: right;
+    top: 5px;
+    left: -5px;
+    color: #FF1111;
 }

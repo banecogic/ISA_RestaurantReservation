@@ -116,4 +116,16 @@ public class MailService {
         String subject = messageSource.getMessage("email.social.registration.title", null, locale);
         sendEmail(user.getEmail(), subject, content, false, true);
     }
+    
+    @Async
+    public void sendFriendConfirmationEmail(User requester, User requested) {
+        log.debug("Sending friend request confirmation e-mail from '{}' to '{}'", requester.getEmail(), requested.getEmail());
+        Locale locale = Locale.forLanguageTag(requested.getLangKey());
+        Context context = new Context(locale);
+        context.setVariable("requester", requester);
+        context.setVariable("requested", requested);
+        String content = templateEngine.process("friendConfirmationEmail", context);
+        String subject = messageSource.getMessage("email.friend.confirmation.title", null, locale);
+        sendEmail(requested.getEmail(), subject, content, false, true);
+    }
 }
