@@ -1,0 +1,54 @@
+
+<div>
+    <h2><span>Spot</span> {{spot.id}}</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Field</th>
+                <th>Value</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    <span>Name</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{spot.name}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>X_position</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{spot.x_position}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>Y_position</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{spot.y_position}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>restaurant</span>
+                </td>
+                <td>
+                    <a class="form-control-static" ui-sref="restaurant.detail({id:spot.restaurant.id})">{{spot.restaurant.name}}</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+</div>

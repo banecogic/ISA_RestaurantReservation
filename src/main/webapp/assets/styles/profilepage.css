@@ -1,0 +1,10 @@
+.profile-image{
+	position: relative;
+	display: inline-block;
+	float: left;
+}
+.profile-image-big{
+	hight: 200px;
+	width: 200px;
+	content: url('../images/user_default_logo_200_200.png');
+}

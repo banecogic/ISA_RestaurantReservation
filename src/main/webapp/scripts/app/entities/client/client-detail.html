@@ -1,0 +1,62 @@
+
+<div>
+    <h2><span>Client</span> {{client.id}}</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Field</th>
+                <th>Value</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    <span>Firstname</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{client.firstname}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>Lastname</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{client.lastname}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>E_mail</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{client.e_mail}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>Date_of_birth</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{client.date_of_birth | date:'mediumDate'}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>role</span>
+                </td>
+                <td>
+                    <a class="form-control-static" ui-sref="role.detail({id:client.role.id})">{{client.role.name}}</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+</div>

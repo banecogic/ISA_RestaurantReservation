@@ -1,0 +1,22 @@
+{
+  "generator-jhipster": {
+    "baseName": "rrapp",
+    "packageName": "com.rrapp",
+    "packageFolder": "com/rrapp",
+    "authenticationType": "session",
+    "hibernateCache": "ehcache",
+    "clusteredHttpSession": "no",
+    "websocket": "no",
+    "databaseType": "sql",
+    "devDatabaseType": "mysql",
+    "prodDatabaseType": "mysql",
+    "searchEngine": "no",
+    "useSass": false,
+    "buildTool": "maven",
+    "frontendBuilder": "grunt",
+    "enableTranslation": false,
+    "enableSocialSignIn": true,
+    "rememberMeKey": "ec951a604cf974a34449d00bb9adbe5a2e5e96f8",
+    "testFrameworks": []
+  }
+}

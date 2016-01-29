@@ -1,0 +1,28 @@
+{
+    "relationships": [
+        {
+            "relationshipId": 1,
+            "relationshipName": "clients",
+            "otherEntityName": "client",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "role"
+        }
+    ],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "pattern"
+            ],
+            "fieldValidateRulesPattern": "[A-Z]+[A-Za-z0-9-]*",
+            "fieldValidateRulesPatternJava": "[A-Z]+[A-Za-z0-9-]*"
+        }
+    ],
+    "changelogDate": "20160108103237",
+    "dto": "no",
+    "service": "no",
+    "pagination": "no"
+}

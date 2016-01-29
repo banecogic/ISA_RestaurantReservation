@@ -1,0 +1,60 @@
+<div>
+    <h2>Friendrequests</h2>
+    <jh-alert></jh-alert>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <button class="btn btn-primary" ui-sref="friendrequest.new">
+                    <span class="glyphicon glyphicon-flash"></span> <span>Create a new Friendrequest</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th><span>ID</span></th>
+                    <th><span>SentDateAndTime</span></th>
+                    <th><span>IsAccepted</span></th>
+                    <th><span>AcceptedDateAndTime</span></th>
+                    <th><span>requester</span></th>
+                    <th><span>requested</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="friendrequest in friendrequests track by friendrequest.id">
+                    <td><a ui-sref="friendrequest.detail({id:friendrequest.id})">{{friendrequest.id}}</a></td>
+                    <td>{{friendrequest.sentDateAndTime | date:'medium'}}</td>
+                    <td>{{friendrequest.isAccepted}}</td>
+                    <td>{{friendrequest.acceptedDateAndTime | date:'medium'}}</td>
+                    <td>
+                        {{friendrequest.requester.login}}
+                    </td>
+                    <td>
+                        {{friendrequest.requested.login}}
+                    </td>
+                    <td>
+                        <button type="submit"
+                                ui-sref="friendrequest.detail({id:friendrequest.id})"
+                                class="btn btn-info btn-sm">
+                            <span class="glyphicon glyphicon-eye-open"></span>&nbsp;<span> View</span>
+                        </button>
+                        <button type="submit"
+                                ui-sref="friendrequest.edit({id:friendrequest.id})"
+                                class="btn btn-primary btn-sm">
+                            <span class="glyphicon glyphicon-pencil"></span>&nbsp;<span> Edit</span>
+                        </button>
+                        <button type="submit"
+                                ui-sref="friendrequest.delete({id:friendrequest.id})"
+                                class="btn btn-danger btn-sm">
+                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span> Delete</span>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

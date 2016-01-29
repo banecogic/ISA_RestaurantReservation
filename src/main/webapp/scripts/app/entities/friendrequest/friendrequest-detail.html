@@ -1,0 +1,62 @@
+
+<div>
+    <h2><span>Friendrequest</span> {{friendrequest.id}}</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Field</th>
+                <th>Value</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    <span>SentDateAndTime</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{friendrequest.sentDateAndTime | date:'medium'}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>IsAccepted</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{friendrequest.isAccepted}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>AcceptedDateAndTime</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{friendrequest.acceptedDateAndTime | date:'medium'}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>requester</span>
+                </td>
+                <td>
+                    {{friendrequest.requester.login}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>requested</span>
+                </td>
+                <td>
+                    {{friendrequest.requested.login}}
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+</div>

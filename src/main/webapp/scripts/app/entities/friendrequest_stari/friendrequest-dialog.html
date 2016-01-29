@@ -1,0 +1,76 @@
+
+<form name="editForm" role="form" novalidate ng-submit="save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="clear()">&times;</button>
+        <h4 class="modal-title" id="myFriendrequestLabel">Create or edit a Friendrequest</h4>
+    </div>
+    <div class="modal-body">
+        <jh-alert-error></jh-alert-error>
+        <div class="form-group">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="friendrequest.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_sentDateAndTime">SentDateAndTime</label>
+            <input id="field_sentDateAndTime" type="text" class="form-control" uib-datepicker-popup="{{dateformat}}" ng-model="friendrequest.sentDateAndTime" is-open="datePickerForSentDateAndTime.status.opened"
+            required/>
+            <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="datePickerForSentDateAndTimeOpen($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+            </span>
+            <div ng-show="editForm.sentDateAndTime.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.sentDateAndTime.$error.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.sentDateAndTime.$error.ZonedDateTimelocal">
+                    This field should be a date and time.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_isAccepted">IsAccepted</label>
+            <input type="checkbox" class="form-control" name="isAccepted" id="field_isAccepted"
+                    ng-model="friendrequest.isAccepted"
+                     />
+            <div ng-show="editForm.isAccepted.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.isAccepted.$error.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_acceptedDateAndTime">AcceptedDateAndTime</label>
+            <input id="field_acceptedDateAndTime" type="text" class="form-control" uib-datepicker-popup="{{dateformat}}" ng-model="friendrequest.acceptedDateAndTime" is-open="datePickerForAcceptedDateAndTime.status.opened"
+            />
+            <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="datePickerForAcceptedDateAndTimeOpen($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+            </span>
+        </div>
+
+        <div class="form-group">
+            <label for="field_requester">requester</label>
+            <select class="form-control" id="field_requester" name="requester" ng-model="friendrequest.requester" ng-options="user as user.login for user in users track by user.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="field_requested">requested</label>
+            <select class="form-control" id="field_requested" name="requested" ng-model="friendrequest.requested" ng-options="user as user.login for user in users track by user.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

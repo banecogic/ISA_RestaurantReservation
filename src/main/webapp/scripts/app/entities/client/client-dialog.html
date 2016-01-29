@@ -1,0 +1,80 @@
+
+<form name="editForm" role="form" novalidate ng-submit="save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="clear()">&times;</button>
+        <h4 class="modal-title" id="myClientLabel">Create or edit a Client</h4>
+    </div>
+    <div class="modal-body">
+        <jh-alert-error></jh-alert-error>
+        <div class="form-group">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="client.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_firstname">Firstname</label>
+            <input type="text" class="form-control" name="firstname" id="field_firstname"
+                    ng-model="client.firstname"
+                    required />
+            <div ng-show="editForm.firstname.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.firstname.$error.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_lastname">Lastname</label>
+            <input type="text" class="form-control" name="lastname" id="field_lastname"
+                    ng-model="client.lastname"
+                    required />
+            <div ng-show="editForm.lastname.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.lastname.$error.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_e_mail">E_mail</label>
+            <input type="text" class="form-control" name="e_mail" id="field_e_mail"
+                    ng-model="client.e_mail"
+                    required ng-pattern="/.+@{1}.+/" />
+            <div ng-show="editForm.e_mail.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.e_mail.$error.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.e_mail.$error.pattern" translate-value-pattern=".+@{1}.+">
+                    This field should follow pattern ".+@{1}.+".
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_date_of_birth">Date_of_birth</label>
+            <input id="field_date_of_birth" type="text" class="form-control" uib-datepicker-popup="{{dateformat}}" ng-model="client.date_of_birth" is-open="datePickerForDate_of_birth.status.opened"
+            />
+            <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="datePickerForDate_of_birthOpen($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+            </span>
+        </div>
+
+        <div class="form-group">
+            <label for="field_role">role</label>
+            <select class="form-control" id="field_role" name="role" ng-model="client.role" ng-options="role as role.name for role in roles track by role.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

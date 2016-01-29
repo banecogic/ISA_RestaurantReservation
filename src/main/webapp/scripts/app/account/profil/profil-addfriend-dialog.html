@@ -1,0 +1,18 @@
+<form name="confirmForm" ng-submit="confirmRequest(settingsAccount.login, selectedObject.originalObject.login)">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="clear()">&times;</button>
+        <h4 class="modal-title">Potvrda slanja zahteva</h4>
+    </div>
+    <div class="modal-body">
+        <p>Jeste li sigurni da želite poslati zahtev korisniku <b>{{friendToRequest.originalObject.login}}</b> ({{friendToRequest.title}})?</p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-warning" data-dismiss="modal" ng-click="clear()">
+            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span>Ipake ne</span>
+        </button>
+        <button type="submit" ng-disabled="confirmForm.$invalid" class="btn btn-info">
+            <span class="glyphicon glyphicon-ok-circle"></span>&nbsp;<span>Želim</span>
+        </button>
+    </div>
+</form>

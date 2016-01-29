@@ -1,0 +1,13 @@
+<div class="modal-header" style="background-color:#44F444;">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="clear()">&times;</button>
+        <h4 class="modal-title">Uspeh</h4>
+</div>
+<div class="modal-body">
+    <p>Korisniku <b>{{friendToRequest.originalObject.login}}</b> ({{friendToRequest.title}}) je uspešno poslat zahtev za prijateljstvo.</p>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-info" ng-click="uredu()">
+        <span class="glyphicon glyphicon-ok-circle"></span>&nbsp;<span>U redu</span>
+    </button>
+</div>

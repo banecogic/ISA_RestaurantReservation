@@ -1,0 +1,64 @@
+{
+    "relationships": [
+        {
+            "relationshipId": 1,
+            "relationshipName": "spots",
+            "otherEntityName": "spot",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "restaurant"
+        },
+        {
+            "relationshipId": 2,
+            "relationshipName": "meals",
+            "otherEntityName": "meal",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "restaurant"
+        },
+        {
+            "relationshipId": 3,
+            "relationshipName": "clients_visits",
+            "otherEntityName": "client",
+            "relationshipType": "many-to-many",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "restaurants_visits"
+        }
+    ],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "description",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldId": 3,
+            "fieldName": "map_x_coordinate",
+            "fieldType": "Double",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldId": 4,
+            "fieldName": "map_y_coordinate",
+            "fieldType": "Double",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20160108110201",
+    "dto": "no",
+    "service": "no",
+    "pagination": "no"
+}

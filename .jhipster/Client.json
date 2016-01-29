@@ -1,0 +1,65 @@
+{
+    "relationships": [
+        {
+            "relationshipId": 1,
+            "relationshipName": "role",
+            "otherEntityName": "role",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
+        },
+        {
+            "relationshipId": 2,
+            "relationshipName": "friends",
+            "otherEntityName": "client",
+            "relationshipType": "many-to-many",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "friends"
+        },
+        {
+            "relationshipId": 3,
+            "relationshipName": "restaurants_visits",
+            "otherEntityName": "restaurant",
+            "relationshipType": "many-to-many",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "clients_visits"
+        }
+    ],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "firstname",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "lastname",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldId": 3,
+            "fieldName": "e_mail",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "pattern"
+            ],
+            "fieldValidateRulesPattern": ".+@{1}.+",
+            "fieldValidateRulesPatternJava": ".+@{1}.+"
+        },
+        {
+            "fieldId": 4,
+            "fieldName": "date_of_birth",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "changelogDate": "20160108102805",
+    "dto": "no",
+    "service": "no",
+    "pagination": "no"
+}

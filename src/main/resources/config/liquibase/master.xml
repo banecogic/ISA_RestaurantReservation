@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <include file="classpath:config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160108102737_added_entity_Role.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160108102805_added_entity_Client.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160108110201_added_entity_Restaurant.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160108110600_added_entity_Spot.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160108111532_added_entity_Meal.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160127112022_added_entity_Friendrequest.xml" relativeToChangelogFile="false"/>
+    <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+</databaseChangeLog>

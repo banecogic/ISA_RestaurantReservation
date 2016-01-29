@@ -1,0 +1,56 @@
+<div>
+    <h2>Meals</h2>
+    <jh-alert></jh-alert>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <button class="btn btn-primary" ui-sref="meal.new">
+                    <span class="glyphicon glyphicon-flash"></span> <span>Create a new Meal</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th><span>ID</span></th>
+                    <th><span>Name</span></th>
+                    <th><span>Description</span></th>
+                    <th><span>Price</span></th>
+                    <th><span>restaurant</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="meal in meals track by meal.id">
+                    <td><a ui-sref="meal.detail({id:meal.id})">{{meal.id}}</a></td>
+                    <td>{{meal.name}}</td>
+                    <td>{{meal.description}}</td>
+                    <td>{{meal.price}}</td>
+                    <td>
+                        <a ui-sref="restaurant.detail({id:meal.restaurant.id})">{{meal.restaurant.name}}</a>
+                    </td>
+                    <td>
+                        <button type="submit"
+                                ui-sref="meal.detail({id:meal.id})"
+                                class="btn btn-info btn-sm">
+                            <span class="glyphicon glyphicon-eye-open"></span>&nbsp;<span> View</span>
+                        </button>
+                        <button type="submit"
+                                ui-sref="meal.edit({id:meal.id})"
+                                class="btn btn-primary btn-sm">
+                            <span class="glyphicon glyphicon-pencil"></span>&nbsp;<span> Edit</span>
+                        </button>
+                        <button type="submit"
+                                ui-sref="meal.delete({id:meal.id})"
+                                class="btn btn-danger btn-sm">
+                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span> Delete</span>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

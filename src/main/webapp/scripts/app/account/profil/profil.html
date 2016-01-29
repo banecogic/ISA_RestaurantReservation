@@ -1,0 +1,81 @@
+<div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="profile-image profile-image-big">
+
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <span>Ime i prezime</span>
+                            </td>
+                            <td>
+                                <span class="form-control-static">{{settingsAccount.firstName}} {{settingsAccount.lastName}}</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>Adresa</span>
+                            </td>
+                            <td>
+                                <span class="form-control-static">{{settingsAccount.email}}</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>Broj poseta</span>
+                            </td>
+                            <td>
+                                <span class="form-control-static">99 CONST TODO !!!</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Moji prijatelji: </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="friend in settingsAccount.friends track by friend">
+                        <td>{{friend}}</td>
+                    </tr>
+                    <tr>
+                        <td>Dodaj prijatelja: </td>
+                    </tr>
+                    <tr>
+                        <td class="input-group">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-success" type="submit"
+                                            ui-sref="profil.dodajprijatelja" ng-disabled="!isAnybodySelected">
+                                        Pošalji zahtev
+                                    </button>
+                                </span>
+                                <div><angucomplete id="friends"
+                                    placeholder="Nadji prijatelja"
+                                    pause="400"
+                                    selected-object="izabranPrijatelj"
+                                    url = "http://localhost:8080/api/users/search/"
+                                    datafield = "results"
+                                    titlefield="firstName,lastName"
+                                    searchfields="title"
+                                    titlefield="name"
+                                    inputclass="form-control form-control-small"/>
+                                </div>
+                            
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>

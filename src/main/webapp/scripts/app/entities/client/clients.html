@@ -1,0 +1,58 @@
+<div>
+    <h2>Clients</h2>
+    <jh-alert></jh-alert>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <button class="btn btn-primary" ui-sref="client.new">
+                    <span class="glyphicon glyphicon-flash"></span> <span>Create a new Client</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th><span>ID</span></th>
+                    <th><span>Firstname</span></th>
+                    <th><span>Lastname</span></th>
+                    <th><span>E_mail</span></th>
+                    <th><span>Date_of_birth</span></th>
+                    <th><span>role</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="client in clients track by client.id">
+                    <td><a ui-sref="client.detail({id:client.id})">{{client.id}}</a></td>
+                    <td>{{client.firstname}}</td>
+                    <td>{{client.lastname}}</td>
+                    <td>{{client.e_mail}}</td>
+                        <td>{{client.date_of_birth | date:'mediumDate'}}</td>
+                    <td>
+                        <a ui-sref="role.detail({id:client.role.id})">{{client.role.name}}</a>
+                    </td>
+                    <td>
+                        <button type="submit"
+                                ui-sref="client.detail({id:client.id})"
+                                class="btn btn-info btn-sm">
+                            <span class="glyphicon glyphicon-eye-open"></span>&nbsp;<span> View</span>
+                        </button>
+                        <button type="submit"
+                                ui-sref="client.edit({id:client.id})"
+                                class="btn btn-primary btn-sm">
+                            <span class="glyphicon glyphicon-pencil"></span>&nbsp;<span> Edit</span>
+                        </button>
+                        <button type="submit"
+                                ui-sref="client.delete({id:client.id})"
+                                class="btn btn-danger btn-sm">
+                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span> Delete</span>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
